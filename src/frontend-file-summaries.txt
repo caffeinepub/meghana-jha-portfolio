@@ -1,5 +1,5 @@
 {
-  "frontend/src/App.tsx": "Main application component that sets up ThemeProvider, QueryClientProvider, and renders the Home page with toast notifications.",
+  "frontend/src/App.tsx": "Main application component that sets up ThemeProvider, InternetIdentityProvider, QueryClientProvider, and renders the Home page with toast notifications.",
   "frontend/src/pages/Home.tsx": "Home page component that orchestrates all portfolio sections including hero, profile, education, projects, hackathon concept, skills, gallery, hobbies, languages, contact, and references in a single-page layout.",
   "frontend/src/components/Layout.tsx": "Layout wrapper component providing consistent header navigation with quick links, contact icons, and footer with attribution to caffeine.ai.",
   "frontend/src/components/Profile.tsx": "Profile section component displaying Meghana's bio statement with microscope icon and card styling.",
@@ -10,10 +10,11 @@
   "frontend/src/components/Hobbies.tsx": "Hobbies card component showing six personal interests with corresponding icons in a two-column grid.",
   "frontend/src/components/Languages.tsx": "Languages proficiency card displaying three languages (English, Hindi, Sanskrit) with progress bars indicating fluency levels.",
   "frontend/src/components/References.tsx": "Academic references card listing three professors from BCAS with their titles and clickable email addresses.",
-  "frontend/src/components/MediaGallery.tsx": "Media gallery component with tabbed interface displaying photos and certificates in matching grid layouts with image thumbnails, hover effects, upload functionality, progress tracking, and full-size modal views for both content types.",
-  "frontend/src/hooks/useMediaUpload.ts": "Custom hook managing photo and certificate uploads with ExternalBlob integration, detailed console logging for tracking upload flow, progress tracking callbacks, and automatic React Query cache invalidation after successful uploads.",
-  "frontend/src/hooks/useQueries.ts": "React Query hooks for fetching photos and certificates from backend with proper getAllPhotos() and getAllCertificates() calls, comprehensive logging for debugging data flow, and cache invalidation support.",
+  "frontend/src/components/MediaGallery.tsx": "Photo gallery component with authentication-protected upload and delete functionality, grid display of photos with hover effects, full-size modal view, and delete confirmation dialog; unauthenticated users can view photos but must log in to upload or delete.",
+  "frontend/src/hooks/useMediaUpload.ts": "Custom hook managing photo uploads with ExternalBlob integration, progress tracking callbacks, and automatic React Query cache invalidation after successful uploads.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for fetching individual photos and all photos from backend with proper type imports and cache invalidation support.",
   "frontend/src/index.css": "Global styles with OKLCH color system featuring sophisticated earth tones, deep teal primary color, and sage green accents for academic aesthetic.",
   "frontend/tailwind.config.js": "Tailwind configuration with custom font families (Inter, Merriweather, JetBrains Mono), extended color palette, and custom shadows for professional design.",
-  "frontend/src/components/HackathonConcept.tsx": "New component displaying the EduThon 2025 winning project TrackEd with detailed concept description, problem statement, solution overview, key features grid, and expected impact using Card components and earth-tone styling."
+  "frontend/src/components/HackathonConcept.tsx": "New component displaying the EduThon 2025 winning project TrackEd with detailed concept description, problem statement, solution overview, key features grid, and expected impact using Card components and earth-tone styling.",
+  "frontend/src/hooks/useDeletePhoto.ts": "React Query mutation hook for deleting photos that calls the backend deletePhoto function and invalidates the photos cache on success."
 }

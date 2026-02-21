@@ -1,54 +1,37 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Fix certificate display in MediaGallery",
+  "title": "Add authentication/access control to prevent unauthorized photo upload and deletion",
   "requirements": [
     {
-      "id": "REQ-22",
-      "summary": "Debug the MediaGallery component's certificate tab to identify why certificates are not rendering despite photos working correctly",
+      "id": "REQ-30",
+      "summary": "Implement Internet Identity authentication requirement for the MediaGallery component so that only authenticated users can upload photos",
       "acceptanceCriteria": [
-        "Console logging shows certificate data being fetched from backend",
-        "Certificate blob URLs are successfully generated",
-        "Root cause of certificate display issue is identified"
+        "Upload button and file input are only visible when user is authenticated via Internet Identity",
+        "Unauthenticated visitors can view photos but cannot access upload functionality",
+        "A login prompt or message appears when unauthenticated users attempt to upload"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/MediaGallery.tsx",
           "operation": "modify",
-          "description": "Add console logging to the certificate rendering logic to track data flow from the useCertificates hook through the grid rendering. Log the raw certificate data, the generated blob URLs using getDirectURL(), and any rendering conditions that might prevent display. Compare the certificate rendering path with the working photo rendering path to identify discrepancies."
+          "description": "Add authentication check using the existing useInternetIdentity hook to conditionally render upload UI elements. Show upload button and file input only when isAuthenticated is true. Display a login prompt with a login button for unauthenticated users instead of upload controls. Verify the useInternetIdentity hook's usage instructions before implementing."
         }
       ]
     },
     {
-      "id": "REQ-23",
-      "summary": "Verify that the useCertificates and useCertificate hooks properly handle the blob data format and convert it to displayable URLs using the same pattern that works for photos",
+      "id": "REQ-31",
+      "summary": "Implement Internet Identity authentication requirement for the photo delete functionality so that only authenticated users can delete photos",
       "acceptanceCriteria": [
-        "useCertificates hook returns valid blob URLs for all certificates",
-        "useCertificate hook returns valid blob URL for individual certificate",
-        "Blob URL generation follows the same working pattern as photo hooks"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/hooks/useQueries.ts",
-          "operation": "modify",
-          "description": "Review and fix the useCertificates and useCertificate hooks to ensure they handle ExternalBlob data correctly. Verify that the hooks call getDirectURL() on the certificate file field (matching how photo hooks use getDirectURL() on the image field). Add null checks and error handling to match the working photo hook patterns. Ensure the query keys and data transformation logic align with the backend interface where CertificateData.file is an ExternalBlob."
-        }
-      ]
-    },
-    {
-      "id": "REQ-24",
-      "summary": "Fix the MediaGallery component to properly render the certificates tab with uploaded certificates displaying in the gallery grid",
-      "acceptanceCriteria": [
-        "Certificates tab shows uploaded certificate images in a grid",
-        "Each certificate card displays the image with title and upload date",
-        "Clicking a certificate opens it in the modal viewer",
-        "Upload new certificate button works correctly"
+        "Delete buttons on photos are only visible when user is authenticated via Internet Identity",
+        "Unauthenticated visitors can view photos but cannot see or access delete buttons",
+        "Delete mutation only executes when user has valid authentication"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/MediaGallery.tsx",
           "operation": "modify",
-          "description": "Fix the certificates tab rendering to display certificate data correctly. Ensure the certificate grid maps over the data returned from useCertificates, renders each certificate card with the image using cert.file.getDirectURL(), displays the title and relevant metadata, and wires up the modal dialog for viewing individual certificates. Verify the upload button triggers the certificate upload flow from useMediaUpload. Maintain the same visual treatment and grid layout as the working photos tab."
+          "description": "Add authentication check using the existing useInternetIdentity hook to conditionally render delete buttons on photo items. Only show delete buttons when isAuthenticated is true. Ensure photo grid display remains accessible to all visitors while hiding delete controls from unauthenticated users. Verify the useInternetIdentity hook's usage instructions before implementing."
         }
       ]
     }

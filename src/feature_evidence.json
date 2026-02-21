@@ -2,8 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-debug-the-mediagallery-component-s-certificate-tab-to-identify-why-certificates-are-not-rendering-despite-photos-working-correctly-after-the-previous-fix",
-      "featureTitle": "Debug the MediaGallery component's certificate tab to identify why certificates are not rendering despite photos working correctly after the previous fix",
+      "featureId": "feature-implement-internet-identity-authentication-requirement-for-the-mediagallery-component-so-that-only-authenticated-users-can-upload-photos",
+      "featureTitle": "Implement Internet Identity authentication requirement for the MediaGallery component so that only authenticated users can upload photos",
       "files": [
         "frontend/src/components/MediaGallery.tsx"
       ],
@@ -16,13 +16,13 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-22"
+        "REQ-30"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-fix-the-mediagallery-component-to-properly-render-the-certificates-tab-ensuring-that-uploaded-certificates-display-in-the-gallery-grid-with-the-same-visual-treatment-as-photos",
-      "featureTitle": "Fix the MediaGallery component to properly render the certificates tab, ensuring that uploaded certificates display in the gallery grid with the same visual treatment as photos",
+      "featureId": "feature-implement-internet-identity-authentication-requirement-for-the-photo-delete-functionality-so-that-only-authenticated-users-can-delete-photos",
+      "featureTitle": "Implement Internet Identity authentication requirement for the photo delete functionality so that only authenticated users can delete photos",
       "files": [
         "frontend/src/components/MediaGallery.tsx"
       ],
@@ -35,7 +35,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-24"
+        "REQ-31"
       ],
       "confidence": "high"
     }

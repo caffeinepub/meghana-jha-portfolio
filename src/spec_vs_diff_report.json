@@ -1,14 +1,15 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-21T17:16:47.778Z",
-  "summary": "The diff implements all four requirements (REQ-22 through REQ-25) for fixing certificate display in MediaGallery. Backend changes ensure getCertificate and getAllCertificates return data in the same format as photo methods. Frontend changes add comprehensive console logging for debugging, implement certificate rendering in the gallery grid with the same visual treatment as photos, and ensure proper blob URL handling. All acceptance criteria appear to be addressed.",
+  "generatedAt": "2026-02-21T19:28:29.849Z",
+  "summary": "All four requirements have been successfully implemented. The backend (main.mo) now includes authentication checks in both addPhoto and deletePhoto functions, rejecting anonymous callers with assert false. The frontend MediaGallery component conditionally renders upload and delete UI based on authentication state, showing a login prompt when unauthenticated users attempt restricted actions.",
   "missing_requirements": [],
   "hallucinated_features": [],
-  "confidence": 0.92,
+  "confidence": 0.95,
   "changed_files": [
     "backend/main.mo",
     "frontend-file-summaries.txt",
+    "frontend/src/App.tsx",
     "frontend/src/components/MediaGallery.tsx",
     "project_state.json"
   ]

@@ -20,12 +20,7 @@ export const _CaffeineStorageRefillResult = IDL.Record({
   'topped_up_amount' : IDL.Opt(IDL.Nat),
 });
 export const ExternalBlob = IDL.Vec(IDL.Nat8);
-export const CertificateData = IDL.Record({
-  'id' : IDL.Text,
-  'title' : IDL.Text,
-  'file' : ExternalBlob,
-});
-export const PhotoData = IDL.Record({
+export const Photo = IDL.Record({
   'id' : IDL.Text,
   'description' : IDL.Text,
   'image' : ExternalBlob,
@@ -58,16 +53,10 @@ export const idlService = IDL.Service({
       [],
     ),
   '_caffeineStorageUpdateGatewayPrincipals' : IDL.Func([], [], []),
-  'addCertificate' : IDL.Func([CertificateData], [], []),
-  'addPhoto' : IDL.Func([PhotoData], [], []),
-  'getAllCertificates' : IDL.Func([], [IDL.Vec(CertificateData)], ['query']),
-  'getAllPhotos' : IDL.Func([], [IDL.Vec(PhotoData)], ['query']),
-  'getCertificate' : IDL.Func(
-      [IDL.Text],
-      [IDL.Opt(CertificateData)],
-      ['query'],
-    ),
-  'getPhoto' : IDL.Func([IDL.Text], [IDL.Opt(PhotoData)], ['query']),
+  'addPhoto' : IDL.Func([Photo], [], []),
+  'deletePhoto' : IDL.Func([IDL.Text], [], []),
+  'getAllPhotos' : IDL.Func([], [IDL.Vec(Photo)], ['query']),
+  'getPhoto' : IDL.Func([IDL.Text], [IDL.Opt(Photo)], ['query']),
 });
 
 export const idlInitArgs = [];
@@ -85,12 +74,7 @@ export const idlFactory = ({ IDL }) => {
     'topped_up_amount' : IDL.Opt(IDL.Nat),
   });
   const ExternalBlob = IDL.Vec(IDL.Nat8);
-  const CertificateData = IDL.Record({
-    'id' : IDL.Text,
-    'title' : IDL.Text,
-    'file' : ExternalBlob,
-  });
-  const PhotoData = IDL.Record({
+  const Photo = IDL.Record({
     'id' : IDL.Text,
     'description' : IDL.Text,
     'image' : ExternalBlob,
@@ -123,16 +107,10 @@ export const idlFactory = ({ IDL }) => {
         [],
       ),
     '_caffeineStorageUpdateGatewayPrincipals' : IDL.Func([], [], []),
-    'addCertificate' : IDL.Func([CertificateData], [], []),
-    'addPhoto' : IDL.Func([PhotoData], [], []),
-    'getAllCertificates' : IDL.Func([], [IDL.Vec(CertificateData)], ['query']),
-    'getAllPhotos' : IDL.Func([], [IDL.Vec(PhotoData)], ['query']),
-    'getCertificate' : IDL.Func(
-        [IDL.Text],
-        [IDL.Opt(CertificateData)],
-        ['query'],
-      ),
-    'getPhoto' : IDL.Func([IDL.Text], [IDL.Opt(PhotoData)], ['query']),
+    'addPhoto' : IDL.Func([Photo], [], []),
+    'deletePhoto' : IDL.Func([IDL.Text], [], []),
+    'getAllPhotos' : IDL.Func([], [IDL.Vec(Photo)], ['query']),
+    'getPhoto' : IDL.Func([IDL.Text], [IDL.Opt(Photo)], ['query']),
   });
 };
 

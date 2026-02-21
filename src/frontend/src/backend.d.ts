@@ -14,21 +14,14 @@ export class ExternalBlob {
     static fromBytes(blob: Uint8Array<ArrayBuffer>): ExternalBlob;
     withUploadProgress(onProgress: (percentage: number) => void): ExternalBlob;
 }
-export interface PhotoData {
+export interface Photo {
     id: string;
     description: string;
     image: ExternalBlob;
 }
-export interface CertificateData {
-    id: string;
-    title: string;
-    file: ExternalBlob;
-}
 export interface backendInterface {
-    addCertificate(certData: CertificateData): Promise<void>;
-    addPhoto(photoData: PhotoData): Promise<void>;
-    getAllCertificates(): Promise<Array<CertificateData>>;
-    getAllPhotos(): Promise<Array<PhotoData>>;
-    getCertificate(id: string): Promise<CertificateData | null>;
-    getPhoto(id: string): Promise<PhotoData | null>;
+    addPhoto(photo: Photo): Promise<void>;
+    deletePhoto(id: string): Promise<void>;
+    getAllPhotos(): Promise<Array<Photo>>;
+    getPhoto(id: string): Promise<Photo | null>;
 }

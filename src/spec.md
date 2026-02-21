@@ -1,12 +1,13 @@
 # Specification
 
 ## Summary
-**Goal:** Fix the certificate display issue in the MediaGallery component so that uploaded certificates render correctly in the certificates tab.
+**Goal:** Add authentication and access control to the MediaGallery to prevent unauthorized users from uploading or deleting photos.
 
 **Planned changes:**
-- Debug certificate data fetching and blob URL generation in the frontend hooks
-- Verify useCertificates and useCertificate hooks handle blob data correctly using the same pattern as photo hooks
-- Fix MediaGallery certificates tab rendering to display certificate images in the grid
-- Ensure backend getAllCertificates and getCertificate methods return data in the same format as photo methods
+- Require Internet Identity authentication for photo upload functionality in the frontend
+- Require Internet Identity authentication for photo delete functionality in the frontend
+- Add backend access control to the addPhoto function to reject anonymous callers
+- Add backend access control to the deletePhoto function to reject anonymous callers
+- Keep photo viewing publicly accessible without authentication
 
-**User-visible outcome:** Users can view their uploaded certificates in the MediaGallery's certificates tab, displayed in a grid with titles and dates, and can click to open them in a modal viewer.
+**User-visible outcome:** Visitors can view photos in the gallery without logging in, but only authenticated users (logged in via Internet Identity) can upload new photos or delete existing photos. Unauthenticated visitors will see a login prompt if they attempt to upload or delete.
