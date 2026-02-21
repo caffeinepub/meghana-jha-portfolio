@@ -3,6 +3,7 @@ import Profile from '@/components/Profile';
 import Contact from '@/components/Contact';
 import Education from '@/components/Education';
 import ProjectsInternships from '@/components/ProjectsInternships';
+import HackathonConcept from '@/components/HackathonConcept';
 import Skills from '@/components/Skills';
 import Hobbies from '@/components/Hobbies';
 import Languages from '@/components/Languages';
@@ -79,22 +80,29 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Hackathon Concept Section */}
+      <section id="hackathon" className="py-20 bg-accent/10">
+        <div className="container mx-auto px-4">
+          <HackathonConcept />
+        </div>
+      </section>
+
       {/* Skills Section */}
-      <section id="skills" className="py-20 bg-accent/10">
+      <section id="skills" className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <Skills />
         </div>
       </section>
 
       {/* Media Gallery Section */}
-      <section id="gallery" className="py-20 bg-background">
+      <section id="gallery" className="py-20 bg-secondary/30">
         <div className="container mx-auto px-4">
           <MediaGallery />
         </div>
       </section>
 
       {/* Hobbies & Languages Section */}
-      <section className="py-20 bg-secondary/20">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             <Hobbies />
@@ -104,7 +112,7 @@ export default function Home() {
       </section>
 
       {/* Contact & References Section */}
-      <section id="contact" className="py-20 bg-background">
+      <section id="contact" className="py-20 bg-secondary/20">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             <Contact />

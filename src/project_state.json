@@ -1,15 +1,18 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
+  "projectStateVersion": 11,
   "summary": "Personal portfolio website for Meghana Jha, a BSc Biomedical Science student at Bhaskaracharya College of Applied Sciences, University of Delhi. The website will showcase her academic background, research interests, projects, internships, skills, and contact information.",
   "architectural_notes": [
     "Portfolio website structure with multiple sections: Profile, Education, Projects & Internships, Skills, Contact, Hobbies, Languages, References",
     "Image upload/display functionality for photos and certificates",
     "Professional design suitable for academic/research context"
   ],
-  "known_issues": [],
-  "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Professional headshot photo placeholder with scientific/academic theme, neutral background suitable for a biomedical science student (profile-photo.dim_400x400.png)\n- Academic achievement certificate background with elegant border design, suitable for displaying awards and achievements (certificate-bg.dim_800x600.png)",
+  "known_issues": [
+    "Photos and certificates are not displaying on the frontend despite upload functionality being implemented",
+    "Photo upload completes successfully with confirmation message, but uploaded photos remain invisible on the frontend",
+    "Certificates are not displaying on the frontend despite upload functionality being implemented"
+  ],
+  "isFixRequest": true,
   "existing_features": [
     {
       "id": "feature-create-a-homepage-with-a-hero-section-displaying-meghana-jha-as-the-main-heading-and-student-of-biomedical-science-at-university-of-delhi-as-the-subtitle",
@@ -106,6 +109,70 @@
         "REQ-13"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-add-a-hackathon-concept-section-to-the-frontend-that-displays-the-eduthon-2025-winning-project-concept-and-idea-with-title-description-and-key-features",
+      "title": "Add a Hackathon Concept section to the frontend that displays the EduThon 2025 winning project concept and idea with title, description, and key features",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-debug-and-fix-the-mediagallery-component-to-properly-fetch-and-display-uploaded-photos-and-certificates-from-the-backend-storage",
+      "title": "Debug and fix the MediaGallery component to properly fetch and display uploaded photos and certificates from the backend storage",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-usemediaupload-and-usequeries-hooks-correctly-handle-the-data-flow-between-upload-storage-and-retrieval-of-media-items",
+      "title": "Ensure the useMediaUpload and useQueries hooks correctly handle the data flow between upload, storage, and retrieval of media items",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-verify-and-fix-the-usequeries-hooks-usephotos-usecertificates-usephoto-usecertificate-to-properly-handle-the-blob-data-format-returned-from-the-backend-and-convert-it-to-displayable-urls",
+      "title": "Verify and fix the useQueries hooks (usePhotos, useCertificates, usePhoto, useCertificate) to properly handle the blob data format returned from the backend and convert it to displayable URLs",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-mediagallery-component-to-properly-render-fetched-photos-and-certificates-ensuring-blob-urls-are-correctly-generated-and-images-display-in-the-gallery-grid",
+      "title": "Fix the MediaGallery component to properly render fetched photos and certificates, ensuring blob URLs are correctly generated and images display in the gallery grid",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-console-logging-to-the-upload-and-retrieval-flow-to-track-data-through-usemediaupload-backend-storage-usequeries-and-mediagallery-rendering-to-identify-where-the-data-flow-breaks",
+      "title": "Add console logging to the upload and retrieval flow to track data through useMediaUpload, backend storage, useQueries, and MediaGallery rendering to identify where the data flow breaks",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-debug-the-mediagallery-component-s-certificate-tab-to-identify-why-certificates-are-not-rendering-despite-photos-working-correctly-after-the-previous-fix",
+      "title": "Debug the MediaGallery component's certificate tab to identify why certificates are not rendering despite photos working correctly after the previous fix",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-mediagallery-component-to-properly-render-the-certificates-tab-ensuring-that-uploaded-certificates-display-in-the-gallery-grid-with-the-same-visual-treatment-as-photos",
+      "title": "Fix the MediaGallery component to properly render the certificates tab, ensuring that uploaded certificates display in the gallery grid with the same visual treatment as photos",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -126,6 +193,44 @@
       "summary": "Implement backend functionality to upload, store, and retrieve photos and certificates with metadata",
       "reqIds": [
         "REQ-10"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Add section to display hackathon concept idea",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Verify that the backend CRUD operations for retrieving photo and certificate blobs are functioning correctly and returning data in the expected format",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Debug and fix the backend blob retrieval methods (getAllPhotos, getAllCertificates, getPhoto, getCertificate) to ensure they correctly return stored blob data with proper ExternalBlob references",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Verify that the useCertificates and useCertificate hooks properly handle the blob data format and convert it to displayable URLs using the same pattern that works for photos",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-20",
+      "summary": "Verify the backend getAllCertificates and getCertificate methods return data in the exact same format as getAllPhotos and getPhoto to ensure consistency in the data pipeline",
+      "reqIds": [
+        "REQ-25"
       ],
       "status": "pending"
     }

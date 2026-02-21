@@ -1,44 +1,40 @@
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import { useActor } from './useActor';
 import { ExternalBlob } from '../backend';
 import type { PhotoData, CertificateData } from '../backend';
 import { toast } from 'sonner';
-
-interface PhotoDisplay {
-  id: string;
-  description: string;
-  imageUrl: string;
-}
-
-interface CertificateDisplay {
-  id: string;
-  title: string;
-  fileUrl: string;
-}
+import { useInvalidateMedia } from './useQueries';
 
 export function useMediaUpload() {
   const { actor } = useActor();
-  const [photos, setPhotos] = useState<PhotoDisplay[]>([]);
-  const [certificates, setCertificates] = useState<CertificateDisplay[]>([]);
-  const [uploadProgress, setUploadProgress] = useState(0);
-  const [isUploading, setIsUploading] = useState(false);
+  const { invalidatePhotos, invalidateCertificates } = useInvalidateMedia();
 
   const handlePhotoUpload = useCallback(
-    async (file: File, description: string) => {
+    async (file: File, description: string, onProgress?: (percentage: number) => void) => {
       if (!actor) {
         toast.error('Backend not initialized');
         return;
       }
 
       try {
-        setIsUploading(true);
-        setUploadProgress(0);
+        console.log('[handlePhotoUpload] Starting upload:', {
+          fileName: file.name,
+          fileSize: file.size,
+          fileType: file.type,
+          description
+        });
 
         const arrayBuffer = await file.arrayBuffer();
         const bytes = new Uint8Array(arrayBuffer);
+        console.log('[handlePhotoUpload] File converted to bytes:', bytes.length);
 
-        const blob = ExternalBlob.fromBytes(bytes).withUploadProgress((percentage) => {
-          setUploadProgress(percentage);
+        const blob = onProgress 
+          ? ExternalBlob.fromBytes(bytes).withUploadProgress(onProgress)
+          : ExternalBlob.fromBytes(bytes);
+
+        console.log('[handlePhotoUpload] ExternalBlob created:', {
+          blobType: typeof blob,
+          hasGetDirectURL: typeof blob.getDirectURL === 'function'
         });
 
         const id = `photo-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
@@ -49,39 +45,56 @@ export function useMediaUpload() {
           image: blob,
         };
 
+        console.log('[handlePhotoUpload] Calling backend addPhoto with:', {
+          id,
+          description,
+          hasImage: !!photoData.image
+        });
+
         await actor.addPhoto(photoData);
 
-        const imageUrl = blob.getDirectURL();
-        setPhotos((prev) => [...prev, { id, description, imageUrl }]);
+        console.log('[handlePhotoUpload] Photo added successfully, invalidating cache');
+
+        // Invalidate queries to refetch all photos
+        await invalidatePhotos();
 
         toast.success('Photo uploaded successfully!');
+        return true;
       } catch (error) {
-        console.error('Error uploading photo:', error);
+        console.error('[handlePhotoUpload] Error uploading photo:', error);
         toast.error('Failed to upload photo');
-      } finally {
-        setIsUploading(false);
-        setUploadProgress(0);
+        return false;
       }
     },
-    [actor]
+    [actor, invalidatePhotos]
   );
 
   const handleCertificateUpload = useCallback(
-    async (file: File, title: string) => {
+    async (file: File, title: string, onProgress?: (percentage: number) => void) => {
       if (!actor) {
         toast.error('Backend not initialized');
         return;
       }
 
       try {
-        setIsUploading(true);
-        setUploadProgress(0);
+        console.log('[handleCertificateUpload] Starting upload:', {
+          fileName: file.name,
+          fileSize: file.size,
+          fileType: file.type,
+          title
+        });
 
         const arrayBuffer = await file.arrayBuffer();
         const bytes = new Uint8Array(arrayBuffer);
+        console.log('[handleCertificateUpload] File converted to bytes:', bytes.length);
 
-        const blob = ExternalBlob.fromBytes(bytes).withUploadProgress((percentage) => {
-          setUploadProgress(percentage);
+        const blob = onProgress
+          ? ExternalBlob.fromBytes(bytes).withUploadProgress(onProgress)
+          : ExternalBlob.fromBytes(bytes);
+
+        console.log('[handleCertificateUpload] ExternalBlob created:', {
+          blobType: typeof blob,
+          hasGetDirectURL: typeof blob.getDirectURL === 'function'
         });
 
         const id = `cert-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
@@ -92,28 +105,31 @@ export function useMediaUpload() {
           file: blob,
         };
 
+        console.log('[handleCertificateUpload] Calling backend addCertificate with:', {
+          id,
+          title,
+          hasFile: !!certData.file
+        });
+
         await actor.addCertificate(certData);
 
-        const fileUrl = blob.getDirectURL();
-        setCertificates((prev) => [...prev, { id, title, fileUrl }]);
+        console.log('[handleCertificateUpload] Certificate added successfully, invalidating cache');
+
+        // Invalidate queries to refetch all certificates
+        await invalidateCertificates();
 
         toast.success('Certificate uploaded successfully!');
+        return true;
       } catch (error) {
-        console.error('Error uploading certificate:', error);
+        console.error('[handleCertificateUpload] Error uploading certificate:', error);
         toast.error('Failed to upload certificate');
-      } finally {
-        setIsUploading(false);
-        setUploadProgress(0);
+        return false;
       }
     },
-    [actor]
+    [actor, invalidateCertificates]
   );
 
   return {
-    photos,
-    certificates,
-    uploadProgress,
-    isUploading,
     handlePhotoUpload,
     handleCertificateUpload,
   };

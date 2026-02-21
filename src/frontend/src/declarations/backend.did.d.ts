@@ -50,6 +50,8 @@ export interface _SERVICE {
   '_caffeineStorageUpdateGatewayPrincipals' : ActorMethod<[], undefined>,
   'addCertificate' : ActorMethod<[CertificateData], undefined>,
   'addPhoto' : ActorMethod<[PhotoData], undefined>,
+  'getAllCertificates' : ActorMethod<[], Array<CertificateData>>,
+  'getAllPhotos' : ActorMethod<[], Array<PhotoData>>,
   'getCertificate' : ActorMethod<[string], [] | [CertificateData]>,
   'getPhoto' : ActorMethod<[string], [] | [PhotoData]>,
 }

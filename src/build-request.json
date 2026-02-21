@@ -1,224 +1,95 @@
 {
   "kind": "build_request",
-  "title": "Create personal portfolio website for Meghana Jha",
-  "projectName": "Meghana Portfolio",
-  "priority": "normal",
+  "title": "Fix certificate display in MediaGallery",
+  "projectName": "Meghana Jha Portfolio",
+  "priority": "high",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Create a homepage with a hero section displaying 'MEGHANA JHA' as the main heading and 'STUDENT OF BIOMEDICAL SCIENCE AT UNIVERSITY OF DELHI' as the subtitle",
+      "id": "REQ-22",
+      "text": "Debug the MediaGallery component's certificate tab to identify why certificates are not rendering despite photos working correctly after the previous fix",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-latest"
+        ],
+        "quotes": [
+          "certificates are still not visible"
         ]
       },
       "acceptanceCriteria": [
-        "Homepage displays the user's name prominently",
-        "Subtitle shows the student's current program and university",
-        "Hero section is visually distinct and welcoming"
+        "Console logging shows certificate data being fetched from backend",
+        "Certificate blob URLs are successfully generated",
+        "Root cause of certificate display issue is identified"
       ]
     },
     {
-      "id": "REQ-2",
-      "text": "Create a Profile section displaying the bio: 'Biomedical Science Student with a strong commitment to skill development and professional growth. Seeking an opportunity to gain practical exposure in clinical laboratory settings and build foundational biomedical skills.'",
+      "id": "REQ-23",
+      "text": "Verify that the useCertificates and useCertificate hooks properly handle the blob data format and convert it to displayable URLs using the same pattern that works for photos",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-latest"
+        ],
+        "quotes": [
+          "certificates are still not visible"
         ]
       },
       "acceptanceCriteria": [
-        "Profile section contains the complete bio text",
-        "Text is readable and well-formatted"
+        "useCertificates hook returns valid blob URLs for all certificates",
+        "useCertificate hook returns valid blob URL for individual certificate",
+        "Blob URL generation follows the same working pattern as photo hooks"
       ]
     },
     {
-      "id": "REQ-3",
-      "text": "Create a Contact section displaying phone number (7879010587) and email (meghana250306@gmail.com)",
+      "id": "REQ-24",
+      "text": "Fix the MediaGallery component to properly render the certificates tab, ensuring that uploaded certificates display in the gallery grid with the same visual treatment as photos",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-latest"
+        ],
+        "quotes": [
+          "certificates are still not visible"
         ]
       },
       "acceptanceCriteria": [
-        "Contact information is clearly visible",
-        "Email is clickable as a mailto link",
-        "Phone number is formatted properly"
+        "Certificates tab shows uploaded certificate images in a grid",
+        "Each certificate card displays the image with title and upload date",
+        "Clicking a certificate opens it in the modal viewer",
+        "Upload new certificate button works correctly"
       ]
     },
     {
-      "id": "REQ-4",
-      "text": "Create an Education section showing: Bhaskaracharya College Of Applied Sciences (2024-present) with BSc Hons. Biomedical Science, CGPA 8.09; Kendriya Vidyalaya No.2 AFS Gwalior Class XII (2023) with 88%; Class X (2021) with 98% and achievement note 'Awarded a certificate and prize money for being in the top 1.5% of students'",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ]
-      },
-      "acceptanceCriteria": [
-        "All three educational entries are displayed",
-        "Dates, institutions, and grades are accurate",
-        "Achievement note for Class X is included"
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Create a Projects & Internships section listing: Student at BCAS; Summer Intern in Microbiology and Pathology at Yashoda Superspeciality Hospital, Kaushambi; Winner of EduThon 2025 with TrackEd project; Presentations on curriculum topics; Workshop and seminar attendance; Group project participation; Classroom discussions; Subject-specific presentations; Two articles in Times of India; Regular meetings with academic advisors",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ]
-      },
-      "acceptanceCriteria": [
-        "All project and internship entries are displayed",
-        "Each entry is clearly formatted and readable",
-        "EduThon 2025 win and TrackEd project are highlighted"
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "text": "Create a Skills section displaying: Microsoft Excel, Laboratory techniques, Research methods, Presentation skills, Team collaboration, Writing proficiency, Document scanning, Social media management, Active learning, Research and analysis, Positive attitude",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ]
-      },
-      "acceptanceCriteria": [
-        "All 11 skills are listed",
-        "Skills are organized in a visually appealing layout"
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "text": "Create a Hobbies section displaying: Article Writing, Journal Writing, Novel reading, Poetry, Chess, Painting",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ]
-      },
-      "acceptanceCriteria": [
-        "All 6 hobbies are listed",
-        "Section is visually distinct from other content"
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "text": "Create a Languages section displaying: English (Fluent), Hindi (Native), Sanskrit (Learned)",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ]
-      },
-      "acceptanceCriteria": [
-        "All three languages with proficiency levels are shown",
-        "Proficiency levels are clearly indicated"
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "text": "Create a References section displaying: Prof. Uma Choudhry (Professor at BCAS) with email uma.chaudhry@bcas.du.ac.in; Dr. Kapil Rao (Professor at BCAS) with email kapil.rao@bcas.du.ac.in; Dr. Neha Singh (Assistant Professor at BCAS) with email neha.singh@bcas.du.ac.in",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ]
-      },
-      "acceptanceCriteria": [
-        "All three references are listed with names, titles, and emails",
-        "Email addresses are clickable mailto links"
-      ]
-    },
-    {
-      "id": "REQ-10",
-      "text": "Implement backend functionality to upload, store, and retrieve photos and certificates with metadata",
+      "id": "REQ-25",
+      "text": "Verify the backend getAllCertificates and getCertificate methods return data in the exact same format as getAllPhotos and getPhoto to ensure consistency in the data pipeline",
       "target": "backend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-latest"
         ],
         "quotes": [
-          "ask if you want anything like photos and certificate i want to add these things"
+          "certificates are still not visible"
         ]
       },
       "acceptanceCriteria": [
-        "Backend accepts file uploads for photos and certificates",
-        "Files are stored with appropriate metadata (type, name, upload date)",
-        "Backend provides endpoints to retrieve uploaded files"
-      ]
-    },
-    {
-      "id": "REQ-11",
-      "text": "Create a media gallery section on the frontend to display uploaded photos and certificates with upload capability",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "ask if you want anything like photos and certificate i want to add these things"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Users can upload photos through the interface",
-        "Users can upload certificates through the interface",
-        "Uploaded photos and certificates are displayed in a gallery format",
-        "Each item can be viewed in full size"
-      ]
-    },
-    {
-      "id": "REQ-12",
-      "text": "Implement a cohesive visual design with an academic and professional aesthetic using clean typography, a sophisticated color palette (avoid blue and purple), and a layout that emphasizes scientific credibility and research focus",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Design reflects academic and research-oriented professionalism",
-        "Color scheme is sophisticated and distinct",
-        "Typography is clear and professional",
-        "Layout is consistent across all sections"
-      ]
-    },
-    {
-      "id": "REQ-13",
-      "text": "Render generated profile photo and academic certificate background images as static assets in frontend/public/assets/generated",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Generated images are stored in the correct directory",
-        "Images are accessible and display correctly",
-        "No backend routing is used for generated images"
+        "getAllCertificates returns array of CertificateData with proper blob references",
+        "getCertificate returns single CertificateData with proper blob reference",
+        "Return format matches the working photo methods exactly"
       ]
     }
   ],
   "constraints": [
-    "All contact information must be displayed exactly as provided",
-    "Educational achievements and dates must be accurate",
-    "Email addresses must be clickable mailto links"
+    "Do not modify the working photo display functionality",
+    "Maintain the existing MediaGallery tabbed interface structure",
+    "Preserve the upload functionality that successfully stores certificates in the backend"
   ],
   "nonGoals": [
-    "Real-time chat or messaging features",
-    "Social media feed integration",
-    "Blog or article publishing system",
-    "User authentication beyond basic upload functionality"
+    "Changing the MediaGallery UI design or layout",
+    "Adding new features beyond fixing certificate display",
+    "Modifying the backend storage schema or data types"
   ],
   "imageRequirements": {
-    "required": [
-      "Professional headshot photo placeholder with scientific/academic theme, neutral background suitable for a biomedical science student (profile-photo.dim_400x400.png)",
-      "Academic achievement certificate background with elegant border design, suitable for displaying awards and achievements (certificate-bg.dim_800x600.png)"
-    ],
+    "required": [],
     "edits": []
   }
 }

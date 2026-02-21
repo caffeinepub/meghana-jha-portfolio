@@ -60,6 +60,8 @@ export const idlService = IDL.Service({
   '_caffeineStorageUpdateGatewayPrincipals' : IDL.Func([], [], []),
   'addCertificate' : IDL.Func([CertificateData], [], []),
   'addPhoto' : IDL.Func([PhotoData], [], []),
+  'getAllCertificates' : IDL.Func([], [IDL.Vec(CertificateData)], ['query']),
+  'getAllPhotos' : IDL.Func([], [IDL.Vec(PhotoData)], ['query']),
   'getCertificate' : IDL.Func(
       [IDL.Text],
       [IDL.Opt(CertificateData)],
@@ -123,6 +125,8 @@ export const idlFactory = ({ IDL }) => {
     '_caffeineStorageUpdateGatewayPrincipals' : IDL.Func([], [], []),
     'addCertificate' : IDL.Func([CertificateData], [], []),
     'addPhoto' : IDL.Func([PhotoData], [], []),
+    'getAllCertificates' : IDL.Func([], [IDL.Vec(CertificateData)], ['query']),
+    'getAllPhotos' : IDL.Func([], [IDL.Vec(PhotoData)], ['query']),
     'getCertificate' : IDL.Func(
         [IDL.Text],
         [IDL.Opt(CertificateData)],

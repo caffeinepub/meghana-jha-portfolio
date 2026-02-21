@@ -27,6 +27,8 @@ export interface CertificateData {
 export interface backendInterface {
     addCertificate(certData: CertificateData): Promise<void>;
     addPhoto(photoData: PhotoData): Promise<void>;
+    getAllCertificates(): Promise<Array<CertificateData>>;
+    getAllPhotos(): Promise<Array<PhotoData>>;
     getCertificate(id: string): Promise<CertificateData | null>;
     getPhoto(id: string): Promise<PhotoData | null>;
 }

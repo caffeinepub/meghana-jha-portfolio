@@ -1,25 +1,44 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Image, FileText, Upload, X } from 'lucide-react';
+import { Image, FileText, Upload } from 'lucide-react';
 import { useMediaUpload } from '@/hooks/useMediaUpload';
+import { useGetAllPhotos, useGetAllCertificates } from '@/hooks/useQueries';
 import { Progress } from '@/components/ui/progress';
 import { toast } from 'sonner';
 
 export default function MediaGallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [selectedCertificate, setSelectedCertificate] = useState<string | null>(null);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [isUploading, setIsUploading] = useState(false);
 
-  const {
-    photos,
-    certificates,
-    uploadProgress,
-    isUploading,
-    handlePhotoUpload,
-    handleCertificateUpload,
-  } = useMediaUpload();
+  const { handlePhotoUpload, handleCertificateUpload } = useMediaUpload();
+  const { data: photos = [], isLoading: photosLoading } = useGetAllPhotos();
+  const { data: certificates = [], isLoading: certificatesLoading } = useGetAllCertificates();
+
+  useEffect(() => {
+    console.log('[MediaGallery] Render with data:', {
+      photosCount: photos.length,
+      certificatesCount: certificates.length,
+      photosLoading,
+      certificatesLoading,
+      photos: photos.map(p => ({
+        id: p.id,
+        description: p.description,
+        hasImage: !!p.image,
+        imageType: typeof p.image
+      })),
+      certificates: certificates.map(c => ({
+        id: c.id,
+        title: c.title,
+        hasFile: !!c.file,
+        fileType: typeof c.file
+      }))
+    });
+  }, [photos, certificates, photosLoading, certificatesLoading]);
 
   const handlePhotoFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -31,7 +50,17 @@ export default function MediaGallery() {
     }
 
     const description = prompt('Enter a description for this photo:') || 'Untitled';
-    await handlePhotoUpload(file, description);
+    
+    setIsUploading(true);
+    setUploadProgress(0);
+    
+    await handlePhotoUpload(file, description, (percentage) => {
+      console.log('[MediaGallery] Upload progress:', percentage);
+      setUploadProgress(percentage);
+    });
+    
+    setIsUploading(false);
+    setUploadProgress(0);
     e.target.value = '';
   };
 
@@ -40,7 +69,17 @@ export default function MediaGallery() {
     if (!file) return;
 
     const title = prompt('Enter a title for this certificate:') || 'Untitled Certificate';
-    await handleCertificateUpload(file, title);
+    
+    setIsUploading(true);
+    setUploadProgress(0);
+    
+    await handleCertificateUpload(file, title, (percentage) => {
+      console.log('[MediaGallery] Upload progress:', percentage);
+      setUploadProgress(percentage);
+    });
+    
+    setIsUploading(false);
+    setUploadProgress(0);
     e.target.value = '';
   };
 
@@ -103,31 +142,53 @@ export default function MediaGallery() {
                 </div>
               )}
 
-              {photos.length === 0 ? (
+              {photosLoading ? (
+                <div className="text-center py-12 text-muted-foreground">
+                  <p>Loading photos...</p>
+                </div>
+              ) : photos.length === 0 ? (
                 <div className="text-center py-12 text-muted-foreground">
                   <Image className="w-16 h-16 mx-auto mb-4 opacity-50" />
                   <p>No photos uploaded yet. Upload your first photo!</p>
                 </div>
               ) : (
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  {photos.map((photo) => (
-                    <div
-                      key={photo.id}
-                      className="relative group cursor-pointer rounded-lg overflow-hidden border-2 hover:border-primary transition-all aspect-square"
-                      onClick={() => setSelectedImage(photo.imageUrl)}
-                    >
-                      <img
-                        src={photo.imageUrl}
-                        alt={photo.description}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p className="text-white text-sm font-medium px-2 text-center">
-                          {photo.description}
-                        </p>
+                  {photos.map((photo) => {
+                    if (!photo.image || typeof photo.image.getDirectURL !== 'function') {
+                      console.error('[MediaGallery] Invalid photo image:', photo);
+                      return null;
+                    }
+                    const imageUrl = photo.image.getDirectURL();
+                    console.log('[MediaGallery] Rendering photo:', {
+                      id: photo.id,
+                      description: photo.description,
+                      imageUrl
+                    });
+                    return (
+                      <div
+                        key={photo.id}
+                        className="relative group cursor-pointer rounded-lg overflow-hidden border-2 hover:border-primary transition-all aspect-square"
+                        onClick={() => {
+                          console.log('[MediaGallery] Opening photo modal:', imageUrl);
+                          setSelectedImage(imageUrl);
+                        }}
+                      >
+                        <img
+                          src={imageUrl}
+                          alt={photo.description}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                          onError={(e) => {
+                            console.error('[MediaGallery] Image failed to load:', imageUrl);
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                          <p className="text-white text-sm font-medium px-2 text-center">
+                            {photo.description}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               )}
             </TabsContent>
@@ -164,32 +225,53 @@ export default function MediaGallery() {
                 </div>
               )}
 
-              {certificates.length === 0 ? (
+              {certificatesLoading ? (
+                <div className="text-center py-12 text-muted-foreground">
+                  <p>Loading certificates...</p>
+                </div>
+              ) : certificates.length === 0 ? (
                 <div className="text-center py-12 text-muted-foreground">
                   <FileText className="w-16 h-16 mx-auto mb-4 opacity-50" />
                   <p>No certificates uploaded yet. Upload your first certificate!</p>
                 </div>
               ) : (
-                <div className="grid md:grid-cols-2 gap-4">
-                  {certificates.map((cert) => (
-                    <Card
-                      key={cert.id}
-                      className="cursor-pointer hover:shadow-lg transition-shadow border-2 hover:border-primary"
-                      onClick={() => setSelectedCertificate(cert.fileUrl)}
-                    >
-                      <CardContent className="p-6">
-                        <div className="flex items-start gap-4">
-                          <div className="p-3 bg-primary/10 rounded-lg">
-                            <FileText className="w-8 h-8 text-primary" />
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="font-bold text-lg mb-1">{cert.title}</h4>
-                            <p className="text-sm text-muted-foreground">Click to view</p>
-                          </div>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                  {certificates.map((cert) => {
+                    if (!cert.file || typeof cert.file.getDirectURL !== 'function') {
+                      console.error('[MediaGallery] Invalid certificate file:', cert);
+                      return null;
+                    }
+                    const fileUrl = cert.file.getDirectURL();
+                    console.log('[MediaGallery] Rendering certificate:', {
+                      id: cert.id,
+                      title: cert.title,
+                      fileUrl
+                    });
+                    return (
+                      <div
+                        key={cert.id}
+                        className="relative group cursor-pointer rounded-lg overflow-hidden border-2 hover:border-primary transition-all aspect-square"
+                        onClick={() => {
+                          console.log('[MediaGallery] Opening certificate modal:', fileUrl);
+                          setSelectedCertificate(fileUrl);
+                        }}
+                      >
+                        <img
+                          src={fileUrl}
+                          alt={cert.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                          onError={(e) => {
+                            console.error('[MediaGallery] Certificate image failed to load:', fileUrl);
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                          <p className="text-white text-sm font-medium px-2 text-center">
+                            {cert.title}
+                          </p>
                         </div>
-                      </CardContent>
-                    </Card>
-                  ))}
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </TabsContent>
