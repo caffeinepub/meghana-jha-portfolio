@@ -1,0 +1,18 @@
+{
+  "frontend/src/App.tsx": "Main application component that sets up ThemeProvider, QueryClientProvider, and renders the Home page with toast notifications.",
+  "frontend/src/pages/Home.tsx": "Home page component that orchestrates all portfolio sections including hero, profile, education, projects, skills, gallery, hobbies, languages, contact, and references in a single-page layout.",
+  "frontend/src/components/Layout.tsx": "Layout wrapper component providing consistent header navigation with quick links, contact icons, and footer with attribution to caffeine.ai.",
+  "frontend/src/components/Profile.tsx": "Profile section component displaying Meghana's bio statement with microscope icon and card styling.",
+  "frontend/src/components/Contact.tsx": "Contact information card displaying phone number and email with clickable links and icon decorations.",
+  "frontend/src/components/Education.tsx": "Education timeline component showing three academic entries with grades, dates, and special achievement highlighting for Class X award.",
+  "frontend/src/components/ProjectsInternships.tsx": "Projects and internships section displaying featured achievements including EduThon 2025 win, internship, and academic activities in card grid layout.",
+  "frontend/src/components/Skills.tsx": "Skills showcase component displaying 11 professional skills as interactive badges in a centered, wrapped layout.",
+  "frontend/src/components/Hobbies.tsx": "Hobbies card component showing six personal interests with corresponding icons in a two-column grid.",
+  "frontend/src/components/Languages.tsx": "Languages proficiency card displaying three languages (English, Hindi, Sanskrit) with progress bars indicating fluency levels.",
+  "frontend/src/components/References.tsx": "Academic references card listing three professors from BCAS with their titles and clickable email addresses.",
+  "frontend/src/components/MediaGallery.tsx": "Media gallery component with tabbed interface for uploading and displaying photos and certificates using blob storage, with full-size modal views.",
+  "frontend/src/hooks/useMediaUpload.ts": "Custom hook managing photo and certificate uploads with progress tracking, ExternalBlob integration, and toast notifications.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for fetching individual photo and certificate data from the backend by ID.",
+  "frontend/src/index.css": "Global styles with OKLCH color system featuring sophisticated earth tones, deep teal primary color, and sage green accents for academic aesthetic.",
+  "frontend/tailwind.config.js": "Tailwind configuration with custom font families (Inter, Merriweather, JetBrains Mono), extended color palette, and custom shadows for professional design."
+}

@@ -1,0 +1,137 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Personal portfolio website for Meghana Jha, a BSc Biomedical Science student at Bhaskaracharya College of Applied Sciences, University of Delhi. The website will showcase her academic background, research interests, projects, internships, skills, and contact information.",
+  "architectural_notes": [
+    "Portfolio website structure with multiple sections: Profile, Education, Projects & Internships, Skills, Contact, Hobbies, Languages, References",
+    "Image upload/display functionality for photos and certificates",
+    "Professional design suitable for academic/research context"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Professional headshot photo placeholder with scientific/academic theme, neutral background suitable for a biomedical science student (profile-photo.dim_400x400.png)\n- Academic achievement certificate background with elegant border design, suitable for displaying awards and achievements (certificate-bg.dim_800x600.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-homepage-with-a-hero-section-displaying-meghana-jha-as-the-main-heading-and-student-of-biomedical-science-at-university-of-delhi-as-the-subtitle",
+      "title": "Create a homepage with a hero section displaying 'MEGHANA JHA' as the main heading and 'STUDENT OF BIOMEDICAL SCIENCE AT UNIVERSITY OF DELHI' as the subtitle",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-profile-section-displaying-the-bio-biomedical-science-student-with-a-strong-commitment-to-skill-development-and-professional-growth-seeking-an-opportunity-to-gain-practical-exposure-in-clinical-laboratory-settings-and-build-foundational-biomedical-skills",
+      "title": "Create a Profile section displaying the bio: 'Biomedical Science Student with a strong commitment to skill development and professional growth. Seeking an opportunity to gain practical exposure in clinical laboratory settings and build foundational biomedical skills.'",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-contact-section-displaying-phone-number-7879010587-and-email-meghana250306-gmail-com",
+      "title": "Create a Contact section displaying phone number (7879010587) and email (meghana250306@gmail.com)",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-education-section-showing-bhaskaracharya-college-of-applied-sciences-2024-present-with-bsc-hons-biomedical-science-cgpa-8-09-kendriya-vidyalaya-no-2-afs-gwalior-class-xii-2023-with-88-class-x-2021-with-98-and-achievement-note-awarded-a-certificate-and-prize-money-for-being-in-the-top-1-5-of-students",
+      "title": "Create an Education section showing: Bhaskaracharya College Of Applied Sciences (2024-present) with BSc Hons. Biomedical Science, CGPA 8.09; Kendriya Vidyalaya No.2 AFS Gwalior Class XII (2023) with 88%; Class X (2021) with 98% and achievement note 'Awarded a certificate and prize money for being in the top 1.5% of students'",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-projects-internships-section-listing-student-at-bcas-summer-intern-in-microbiology-and-pathology-at-yashoda-superspeciality-hospital-kaushambi-winner-of-eduthon-2025-with-tracked-project-presentations-on-curriculum-topics-workshop-and-seminar-attendance-group-project-participation-classroom-discussions-subject-specific-presentations-two-articles-in-times-of-india-regular-meetings-with-academic-advisors",
+      "title": "Create a Projects & Internships section listing: Student at BCAS; Summer Intern in Microbiology and Pathology at Yashoda Superspeciality Hospital, Kaushambi; Winner of EduThon 2025 with TrackEd project; Presentations on curriculum topics; Workshop and seminar attendance; Group project participation; Classroom discussions; Subject-specific presentations; Two articles in Times of India; Regular meetings with academic advisors",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-skills-section-displaying-microsoft-excel-laboratory-techniques-research-methods-presentation-skills-team-collaboration-writing-proficiency-document-scanning-social-media-management-active-learning-research-and-analysis-positive-attitude",
+      "title": "Create a Skills section displaying: Microsoft Excel, Laboratory techniques, Research methods, Presentation skills, Team collaboration, Writing proficiency, Document scanning, Social media management, Active learning, Research and analysis, Positive attitude",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-hobbies-section-displaying-article-writing-journal-writing-novel-reading-poetry-chess-painting",
+      "title": "Create a Hobbies section displaying: Article Writing, Journal Writing, Novel reading, Poetry, Chess, Painting",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-languages-section-displaying-english-fluent-hindi-native-sanskrit-learned",
+      "title": "Create a Languages section displaying: English (Fluent), Hindi (Native), Sanskrit (Learned)",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-references-section-displaying-prof-uma-choudhry-professor-at-bcas-with-email-uma-chaudhry-bcas-du-ac-in-dr-kapil-rao-professor-at-bcas-with-email-kapil-rao-bcas-du-ac-in-dr-neha-singh-assistant-professor-at-bcas-with-email-neha-singh-bcas-du-ac-in",
+      "title": "Create a References section displaying: Prof. Uma Choudhry (Professor at BCAS) with email uma.chaudhry@bcas.du.ac.in; Dr. Kapil Rao (Professor at BCAS) with email kapil.rao@bcas.du.ac.in; Dr. Neha Singh (Assistant Professor at BCAS) with email neha.singh@bcas.du.ac.in",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-media-gallery-section-on-the-frontend-to-display-uploaded-photos-and-certificates-with-upload-capability",
+      "title": "Create a media gallery section on the frontend to display uploaded photos and certificates with upload capability",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-cohesive-visual-design-with-an-academic-and-professional-aesthetic-using-clean-typography-a-sophisticated-color-palette-avoid-blue-and-purple-and-a-layout-that-emphasizes-scientific-credibility-and-research-focus",
+      "title": "Implement a cohesive visual design with an academic and professional aesthetic using clean typography, a sophisticated color palette (avoid blue and purple), and a layout that emphasizes scientific credibility and research focus",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-render-generated-profile-photo-and-academic-certificate-background-images-as-static-assets-in-frontend-public-assets-generated",
+      "title": "Render generated profile photo and academic certificate background images as static assets in frontend/public/assets/generated",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create personal portfolio website with sections for profile, education, projects/internships, skills, contact info, hobbies, languages, and references",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add capability to upload and display photos and certificates",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Implement backend functionality to upload, store, and retrieve photos and certificates with metadata",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Meghana Jha Portfolio",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

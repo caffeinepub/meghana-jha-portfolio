@@ -1,0 +1,266 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Meghana Portfolio - Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create homepage with hero section displaying name and subtitle",
+      "acceptanceCriteria": [
+        "Homepage displays the user's name prominently",
+        "Subtitle shows the student's current program and university",
+        "Hero section is visually distinct and welcoming"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "create",
+          "description": "Create Home page component with hero section displaying 'MEGHANA JHA' as main heading and 'STUDENT OF BIOMEDICAL SCIENCE AT UNIVERSITY OF DELHI' as subtitle. Use large typography for the name and professional styling for the subtitle. Include the generated profile photo from frontend/public/assets/generated/profile-photo.dim_400x400.png in the hero section."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the Home page as the main route. Set up routing to render the Home component at the root path."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Create Profile section displaying bio",
+      "acceptanceCriteria": [
+        "Profile section contains the complete bio text",
+        "Text is readable and well-formatted"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Profile.tsx",
+          "operation": "create",
+          "description": "Create Profile component displaying the bio: 'Biomedical Science Student with a strong commitment to skill development and professional growth. Seeking an opportunity to gain practical exposure in clinical laboratory settings and build foundational biomedical skills.' Use clear typography and professional formatting."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Import and render the Profile component below the hero section in the Home page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create Contact section with phone and email",
+      "acceptanceCriteria": [
+        "Contact information is clearly visible",
+        "Email is clickable as a mailto link",
+        "Phone number is formatted properly"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Contact.tsx",
+          "operation": "create",
+          "description": "Create Contact component displaying phone number (7879010587) and email (meghana250306@gmail.com). Format phone as clickable tel: link and email as mailto: link. Use clear labels and professional layout."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Import and render the Contact component in the Home page layout."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Create Education section with academic history",
+      "acceptanceCriteria": [
+        "All three educational entries are displayed",
+        "Dates, institutions, and grades are accurate",
+        "Achievement note for Class X is included"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Education.tsx",
+          "operation": "create",
+          "description": "Create Education component displaying: (1) Bhaskaracharya College Of Applied Sciences (2024-present), BSc Hons. Biomedical Science, CGPA 8.09; (2) Kendriya Vidyalaya No.2 AFS Gwalior Class XII (2023), 88%; (3) Kendriya Vidyalaya No.2 AFS Gwalior Class X (2021), 98%, with achievement note 'Awarded a certificate and prize money for being in the top 1.5% of students'. Use timeline or card layout for clear presentation."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Import and render the Education component in the Home page layout."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Create Projects & Internships section",
+      "acceptanceCriteria": [
+        "All project and internship entries are displayed",
+        "Each entry is clearly formatted and readable",
+        "EduThon 2025 win and TrackEd project are highlighted"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ProjectsInternships.tsx",
+          "operation": "create",
+          "description": "Create ProjectsInternships component listing: Student at BCAS; Summer Intern in Microbiology and Pathology at Yashoda Superspeciality Hospital, Kaushambi; Winner of EduThon 2025 with TrackEd project (highlighted); Presentations on curriculum topics; Workshop and seminar attendance; Group project participation; Classroom discussions; Subject-specific presentations; Two articles in Times of India; Regular meetings with academic advisors. Use grid or list layout with clear categorization."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Import and render the ProjectsInternships component in the Home page layout."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Create Skills section",
+      "acceptanceCriteria": [
+        "All 11 skills are listed",
+        "Skills are organized in a visually appealing layout"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Skills.tsx",
+          "operation": "create",
+          "description": "Create Skills component displaying all 11 skills: Microsoft Excel, Laboratory techniques, Research methods, Presentation skills, Team collaboration, Writing proficiency, Document scanning, Social media management, Active learning, Research and analysis, Positive attitude. Use badge or card layout for visual appeal."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Import and render the Skills component in the Home page layout."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Create Hobbies section",
+      "acceptanceCriteria": [
+        "All 6 hobbies are listed",
+        "Section is visually distinct from other content"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Hobbies.tsx",
+          "operation": "create",
+          "description": "Create Hobbies component displaying: Article Writing, Journal Writing, Novel reading, Poetry, Chess, Painting. Use icon-based or card layout to make the section visually distinct."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Import and render the Hobbies component in the Home page layout."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Create Languages section with proficiency levels",
+      "acceptanceCriteria": [
+        "All three languages with proficiency levels are shown",
+        "Proficiency levels are clearly indicated"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Languages.tsx",
+          "operation": "create",
+          "description": "Create Languages component displaying: English (Fluent), Hindi (Native), Sanskrit (Learned). Use progress bars or badge layout to clearly show proficiency levels."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Import and render the Languages component in the Home page layout."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Create References section with academic contacts",
+      "acceptanceCriteria": [
+        "All three references are listed with names, titles, and emails",
+        "Email addresses are clickable mailto links"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/References.tsx",
+          "operation": "create",
+          "description": "Create References component displaying: (1) Prof. Uma Choudhry, Professor at BCAS, uma.chaudhry@bcas.du.ac.in; (2) Dr. Kapil Rao, Professor at BCAS, kapil.rao@bcas.du.ac.in; (3) Dr. Neha Singh, Assistant Professor at BCAS, neha.singh@bcas.du.ac.in. Format emails as clickable mailto links."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Import and render the References component in the Home page layout."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Create media gallery for photos and certificates with upload capability",
+      "acceptanceCriteria": [
+        "Users can upload photos through the interface",
+        "Users can upload certificates through the interface",
+        "Uploaded photos and certificates are displayed in a gallery format",
+        "Each item can be viewed in full size"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/MediaGallery.tsx",
+          "operation": "create",
+          "description": "Create MediaGallery component with tabbed interface for Photos and Certificates. Use the blob-storage component's ExternalBlob class for file uploads and display. Include upload buttons for each tab that accept file inputs. For photos, call backend.addPhoto() with PhotoData containing id, description, and ExternalBlob. For certificates, call backend.addCertificate() with CertificateData containing id, title, and ExternalBlob. Display uploaded items in a responsive grid layout using getDirectURL() for image/file display. Implement full-size modal view for each item. Use ExternalBlob.fromBytes() to create blobs from file inputs and withUploadProgress() to show upload progress. Verify the blob-storage component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useMediaUpload.ts",
+          "operation": "create",
+          "description": "Create custom hook for managing media upload state, progress tracking, and backend integration. Handle file selection, validation, upload progress callbacks, and backend method calls (addPhoto, addCertificate). Return upload handlers, progress state, and error handling."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Import and render the MediaGallery component in the Home page layout. Include the generated certificate-bg.dim_800x600.png from frontend/public/assets/generated/certificate-bg.dim_800x600.png as a background or decorative element in the certificates section."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Implement cohesive academic visual design",
+      "acceptanceCriteria": [
+        "Design reflects academic and research-oriented professionalism",
+        "Color scheme is sophisticated and distinct",
+        "Typography is clear and professional",
+        "Layout is consistent across all sections"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update global styles with academic and professional aesthetic. Define a sophisticated color palette avoiding blue and purple (consider earth tones, greens, or neutrals). Set professional typography using clean, readable fonts. Apply consistent spacing and layout principles emphasizing scientific credibility."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Configure Tailwind theme with custom color palette for academic aesthetic (avoiding blue and purple). Define typography scale with professional font families. Set up spacing and layout utilities for consistent section presentation."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create Layout component wrapping all page content with consistent header, footer, and section spacing. Apply cohesive design system with professional navigation and branding elements. Ensure responsive layout for all screen sizes."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Wrap Home page content with Layout component to ensure consistent design application across all sections."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Render generated images as static frontend assets",
+      "acceptanceCriteria": [
+        "Generated images are stored in the correct directory",
+        "Images are accessible and display correctly",
+        "No backend routing is used for generated images"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Reference the generated profile photo at frontend/public/assets/generated/profile-photo.dim_400x400.png in the hero section using standard img tag or CSS background. Reference the generated certificate background at frontend/public/assets/generated/certificate-bg.dim_800x600.png as a decorative element in relevant sections. Use relative paths from the public directory for image sources."
+        }
+      ]
+    }
+  ]
+}

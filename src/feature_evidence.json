@@ -1,0 +1,247 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-homepage-with-a-hero-section-displaying-meghana-jha-as-the-main-heading-and-student-of-biomedical-science-at-university-of-delhi-as-the-subtitle",
+      "featureTitle": "Create a homepage with a hero section displaying 'MEGHANA JHA' as the main heading and 'STUDENT OF BIOMEDICAL SCIENCE AT UNIVERSITY OF DELHI' as the subtitle",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-profile-section-displaying-the-bio-biomedical-science-student-with-a-strong-commitment-to-skill-development-and-professional-growth-seeking-an-opportunity-to-gain-practical-exposure-in-clinical-laboratory-settings-and-build-foundational-biomedical-skills",
+      "featureTitle": "Create a Profile section displaying the bio: 'Biomedical Science Student with a strong commitment to skill development and professional growth. Seeking an opportunity to gain practical exposure in clinical laboratory settings and build foundational biomedical skills.'",
+      "files": [
+        "frontend/src/components/Profile.tsx",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-contact-section-displaying-phone-number-7879010587-and-email-meghana250306-gmail-com",
+      "featureTitle": "Create a Contact section displaying phone number (7879010587) and email (meghana250306@gmail.com)",
+      "files": [
+        "frontend/src/components/Contact.tsx",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-an-education-section-showing-bhaskaracharya-college-of-applied-sciences-2024-present-with-bsc-hons-biomedical-science-cgpa-8-09-kendriya-vidyalaya-no-2-afs-gwalior-class-xii-2023-with-88-class-x-2021-with-98-and-achievement-note-awarded-a-certificate-and-prize-money-for-being-in-the-top-1-5-of-students",
+      "featureTitle": "Create an Education section showing: Bhaskaracharya College Of Applied Sciences (2024-present) with BSc Hons. Biomedical Science, CGPA 8.09; Kendriya Vidyalaya No.2 AFS Gwalior Class XII (2023) with 88%; Class X (2021) with 98% and achievement note 'Awarded a certificate and prize money for being in the top 1.5% of students'",
+      "files": [
+        "frontend/src/components/Education.tsx",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-projects-internships-section-listing-student-at-bcas-summer-intern-in-microbiology-and-pathology-at-yashoda-superspeciality-hospital-kaushambi-winner-of-eduthon-2025-with-tracked-project-presentations-on-curriculum-topics-workshop-and-seminar-attendance-group-project-participation-classroom-discussions-subject-specific-presentations-two-articles-in-times-of-india-regular-meetings-with-academic-advisors",
+      "featureTitle": "Create a Projects & Internships section listing: Student at BCAS; Summer Intern in Microbiology and Pathology at Yashoda Superspeciality Hospital, Kaushambi; Winner of EduThon 2025 with TrackEd project; Presentations on curriculum topics; Workshop and seminar attendance; Group project participation; Classroom discussions; Subject-specific presentations; Two articles in Times of India; Regular meetings with academic advisors",
+      "files": [
+        "frontend/src/components/ProjectsInternships.tsx",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-skills-section-displaying-microsoft-excel-laboratory-techniques-research-methods-presentation-skills-team-collaboration-writing-proficiency-document-scanning-social-media-management-active-learning-research-and-analysis-positive-attitude",
+      "featureTitle": "Create a Skills section displaying: Microsoft Excel, Laboratory techniques, Research methods, Presentation skills, Team collaboration, Writing proficiency, Document scanning, Social media management, Active learning, Research and analysis, Positive attitude",
+      "files": [
+        "frontend/src/components/Skills.tsx",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-hobbies-section-displaying-article-writing-journal-writing-novel-reading-poetry-chess-painting",
+      "featureTitle": "Create a Hobbies section displaying: Article Writing, Journal Writing, Novel reading, Poetry, Chess, Painting",
+      "files": [
+        "frontend/src/components/Hobbies.tsx",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-languages-section-displaying-english-fluent-hindi-native-sanskrit-learned",
+      "featureTitle": "Create a Languages section displaying: English (Fluent), Hindi (Native), Sanskrit (Learned)",
+      "files": [
+        "frontend/src/components/Languages.tsx",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-references-section-displaying-prof-uma-choudhry-professor-at-bcas-with-email-uma-chaudhry-bcas-du-ac-in-dr-kapil-rao-professor-at-bcas-with-email-kapil-rao-bcas-du-ac-in-dr-neha-singh-assistant-professor-at-bcas-with-email-neha-singh-bcas-du-ac-in",
+      "featureTitle": "Create a References section displaying: Prof. Uma Choudhry (Professor at BCAS) with email uma.chaudhry@bcas.du.ac.in; Dr. Kapil Rao (Professor at BCAS) with email kapil.rao@bcas.du.ac.in; Dr. Neha Singh (Assistant Professor at BCAS) with email neha.singh@bcas.du.ac.in",
+      "files": [
+        "frontend/src/components/References.tsx",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-media-gallery-section-on-the-frontend-to-display-uploaded-photos-and-certificates-with-upload-capability",
+      "featureTitle": "Create a media gallery section on the frontend to display uploaded photos and certificates with upload capability",
+      "files": [
+        "frontend/src/components/MediaGallery.tsx",
+        "frontend/src/hooks/useMediaUpload.ts",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-cohesive-visual-design-with-an-academic-and-professional-aesthetic-using-clean-typography-a-sophisticated-color-palette-avoid-blue-and-purple-and-a-layout-that-emphasizes-scientific-credibility-and-research-focus",
+      "featureTitle": "Implement a cohesive visual design with an academic and professional aesthetic using clean typography, a sophisticated color palette (avoid blue and purple), and a layout that emphasizes scientific credibility and research focus",
+      "files": [
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/src/pages/Home.tsx",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-render-generated-profile-photo-and-academic-certificate-background-images-as-static-assets-in-frontend-public-assets-generated",
+      "featureTitle": "Render generated profile photo and academic certificate background images as static assets in frontend/public/assets/generated",
+      "files": [
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

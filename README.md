@@ -1,2 +1,3 @@
-# meghana-jha-portfolio
-Exported from Caffeine project: Meghana Jha Portfolio
+## Meghana Jha Portfolio
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`
